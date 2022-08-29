@@ -53,7 +53,14 @@
             <a class="btn s2" href="#" onclick="downloadAndroid()">Android App下载</a>
         </section>
 
-        <footer>Copyright 2022 <a href="https://www.jscj.edu.cn/" target="_blank">江苏财经职业技术学院</a> 版权所有</footer>
+        <footer>
+            <div>
+                <a class="entrance" href="http://i.jscj.edu.cn/" target="_blank">智慧财院入口(网页)</a>
+            </div>
+            <div>
+                Copyright 2022 <a href="https://www.jscj.edu.cn/" target="_blank">江苏财经职业技术学院</a> 版权所有
+            </div>
+        </footer>
     </div>
 
     <script type="text/javascript">
@@ -71,11 +78,8 @@
 
         //添加遮罩
         function is_weixin() {
-            if ((window.navigator.userAgent.indexOf('MQQBrowser') > -1 && window.navigator.userAgent.indexOf('QQ/') > -1) || window.navigator.userAgent.indexOf('weibo') > -1) {
-                return true;
-            } else {
-                return false;
-            }
+            let u = window.navigator.userAgent.toLocaleLowerCase();
+            return /micromessenger/.test(u) ? true : false;
         }
 
         // 判断设备类型

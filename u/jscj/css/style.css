@@ -53,6 +53,7 @@ header {
   -moz-background-size: contain;
   -webkit-background-size: contain;
   background-image: url(../image/header_bg.png);
+  background-color: #1f6dcd;
 }
 .logo {
   position: absolute;
@@ -155,6 +156,16 @@ footer {
   width: 100%;
   bottom: 5%;
   text-align: center;
+}
+.entrance {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #1f6dcd;
+  box-shadow: #b6b6b6;
 }
 .popup .btn {
   position: absolute;
