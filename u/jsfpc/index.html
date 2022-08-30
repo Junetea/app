@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <title>江苏食品药品职业技术学院</title>
+</head>
+
+<body>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .test {
+            height: 600px;
+            max-width: 600px;
+            font-size: 40px;
+        }
+    </style>
+    <div class="wrap">
+        <header>
+            <!-- <h1 class="logo">江苏食品药品职业技术学院</h1> -->
+            <img src="image/header_bg.png" alt="" srcset="">
+        </header>
+
+        <section class="qr" id="pc" style="display: none;">
+            <img src="image/default.png" />
+            <p class="warn">请使用手机扫描二维码下载客户端</p>
+        </section>
+
+        <section class="book" id="ios" style="display: none;">
+            <img src="image/default.png">
+            <div>
+                <a class="btn s1" href="#" onclick="downloadIos()">iOS App下载</a>
+            </div>
+        </section>
+
+        <section class="book" id="android" style="display: none;">
+            <img src="image/weixin.png">
+            <a class="btn s2" href="#" onclick="downloadAndroid()">Android App下载</a>
+        </section>
+
+        <footer>
+            <div>
+                <a class="entrance" href="https://my.jsfpc.edu.cn/" target="_blank">智慧校园入口(网页)</a>
+            </div>
+            <div>
+                Copyright 2022 <a href="https://www.jsfpc.edu.cn/" target="_blank">江苏食品药品职业技术学院</a> 版权所有
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        function downloadIos() {
+            localStorage.setItem("yidongapp", "null");
+            window.location =
+                "https://apps.apple.com/cn/app/%E6%B1%9F%E8%8B%8F%E9%A3%9F%E5%93%81%E8%8D%AF%E5%93%81%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0v3-0/id1362443787";
+        }
+
+        function downloadAndroid() {
+            localStorage.setItem("yidongapp", "null");
+            window.location =
+                "";
+        }
+
+        //添加遮罩
+        function is_weixin() {
+            let u = window.navigator.userAgent.toLocaleLowerCase();
+            return /micromessenger/.test(u) ? true : false;
+        }
+
+        // 判断设备类型
+        function is_android() {
+            let u = window.navigator.userAgent;
+            // 是否是Android终端
+            if (u.indexOf('Android') > -1 || u.indexOf('Adr') > -1) {
+                return true; // Android终端
+            } else {
+                return false;
+            }
+        }
+
+        function is_ios() {
+            let u = window.navigator.userAgent;
+            // 是否是ios终端
+            if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        var isWeixin = is_weixin();
+        var isAndroid = is_android();
+        var isIos = is_ios();
+
+        if (isAndroid) {
+            var e = document.getElementById('android');
+            e.style.display = 'block';
+        }
+
+        if (isIos) {
+            var e = document.getElementById('ios');
+            e.style.display = 'block';
+        }
+
+        if (!isAndroid && !isIos) {
+            var e = document.getElementById('pc');
+            e.style.display = 'block';
+        }
+
+        var winHeight =
+            typeof window.innerHeight != "undefined"
+                ? window.innerHeight
+                : document.documentElement.clientHeight;
+
+        function loadHtml() {
+            var div = document.createElement("div");
+            div.id = "weixin-tip";
+            div.innerHTML =
+                '<p><img src="image/live_weixin.png" alt="微信打开"/></p>';
+            document.body.appendChild(div);
+        }
+
+        function loadStyleText(cssText) {
+            var style = document.createElement("style");
+            style.rel = "stylesheet";
+            style.type = "text/css";
+            try {
+                style.appendChild(document.createTextNode(cssText));
+            } catch (e) {
+                style.styleSheet.cssText = cssText; //ie9以下
+            }
+            var head = document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+            head.appendChild(style);
+        }
+
+        var cssText =
+            "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;} " +
+            "#weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}";
+        if (isWeixin) {
+            // loadHtml();
+            // loadStyleText(cssText);
+        }
+
+        // 点击遮罩返回跳转页面
+        var weixin_div = document.getElementById("popup");
+        if (weixin_div) {
+            var url = "null";
+            if (url != "null") {
+                weixin_div.onclick = function () {
+                    window.location.href = "null";
+                };
+            }
+        }
+    </script>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id: "JnQ9n2g6iRfI7sxq",ck: "JnQ9n2g6iRfI7sxq"})</script>
+</body>
+
+</html>
